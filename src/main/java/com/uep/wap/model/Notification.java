@@ -1,26 +1,57 @@
-package main.java.com.uep.wap.model;
+package com.uep.wap.model;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Notifications")
 public class Notification {
     @Id
-    @Column(name = "notification_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long notificationId;
 
-    @Column(name = "notification_name")
+
     private String notificationName;
 
 
     @ManyToOne
-    @JoinColumn(name = "app_id")
-    @Column(name = "app")
+    @JoinColumn(name = "users")
     private AppProjectManagementII app;
 
     @ManyToOne
-    @JoinColumn(name = "list_of_notifications")
-    @Column(name = "user")
+    @JoinColumn(name = "listOfNotifications")
     private User user;
 
+    public Notification() {
+    }
 
+    public void setNotificationId(long notificationId) {
+        this.notificationId = notificationId;
+    }
+
+    public void setNotificationName(String notificationName) {
+        this.notificationName = notificationName;
+    }
+
+    public void setApp(AppProjectManagementII app) {
+        this.app = app;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public long getNotificationId() {
+        return notificationId;
+    }
+
+    public String getNotificationName() {
+        return notificationName;
+    }
+
+    public AppProjectManagementII getApp() {
+        return app;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

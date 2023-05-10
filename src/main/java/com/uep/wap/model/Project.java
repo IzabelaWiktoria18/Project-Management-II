@@ -1,8 +1,8 @@
-package main.java.com.uep.wap.model;
+package com.uep.wap.model;
+import javax.persistence.*;
+import java.util.List;
 
-
-import main.java.com.uep.wap.model.Team;
-
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -10,35 +10,113 @@ import java.util.List;
 public class Project{
 
     @Id
-    @Column(name = "project_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ProjectId;
 
-    @Column(name = "project_name")
+
     private String projectName;
 
-    @Column(name = "users_list")
+
+    @ManyToMany
+    @JoinColumn(name = "listOfProjects")
     private List<User> usersList;
 
-    @Column(name = "assigned_team")
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+
+    @OneToMany
+    @JoinColumn(name = "project")
     private Team assignedTeam;
 
-    @Column(name = "project_reports")
+
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<Report> projectReports;
 
-    @Column(name = "tasks_list")
+
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<Task> tasksList;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @ManyToOne
-    @JoinColumn(name = "app_id")
-    @Column(name = "app")
+    @JoinColumn(name = "projects")
     private AppProjectManagementII app;
 
-    @OneToOne(mappedBy = "project_name", cascade = CascadeType.ALL)
-    @Column(name = "kanbanBoard")
+    @OneToOne(mappedBy = "projectName", cascade = CascadeType.ALL)
     private KanbanBoard kanbanBoard;
 
+    @OneToOne
+    @JoinColumn(name = "project")
+    private Dashboard dashboard;
+
+    public Project() {
+    }
+
+    public void setProjectId(long projectId) {
+        ProjectId = projectId;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public void setUsersList(List<User> usersList) {
+        this.usersList = usersList;
+    }
+
+    public void setAssignedTeam(Team assignedTeam) {
+        this.assignedTeam = assignedTeam;
+    }
+
+    public void setProjectReports(List<Report> projectReports) {
+        this.projectReports = projectReports;
+    }
+
+    public void setTasksList(List<Task> tasksList) {
+        this.tasksList = tasksList;
+    }
+
+    public void setApp(AppProjectManagementII app) {
+        this.app = app;
+    }
+
+    public void setKanbanBoard(KanbanBoard kanbanBoard) {
+        this.kanbanBoard = kanbanBoard;
+    }
+
+    public void setDashboard(Dashboard dashboard) {
+        this.dashboard = dashboard;
+    }
+
+    public long getProjectId() {
+        return ProjectId;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public List<User> getUsersList() {
+        return usersList;
+    }
+
+    public Team getAssignedTeam() {
+        return assignedTeam;
+    }
+
+    public List<Report> getProjectReports() {
+        return projectReports;
+    }
+
+    public List<Task> getTasksList() {
+        return tasksList;
+    }
+
+    public AppProjectManagementII getApp() {
+        return app;
+    }
+
+    public KanbanBoard getKanbanBoard() {
+        return kanbanBoard;
+    }
+
+    public Dashboard getDashboard() {
+        return dashboard;
+    }
 }

@@ -1,16 +1,34 @@
-package main.java.com.uep.wap.model;
+package com.uep.wap.model;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Calendar")
 public class Calendar {
     @Id
-    @Column(name = "calendar_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long calendarId;
 
-    @Column(name = "calendar_user")
+
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "calendar")
     private User calendarUser;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Calendar() {
+    }
+
+    public void setCalendarId(long calendarId) {
+        this.calendarId = calendarId;
+    }
+
+    public void setCalendarUser(User calendarUser) {
+        this.calendarUser = calendarUser;
+    }
+
+    public long getCalendarId() {
+        return calendarId;
+    }
+
+    public User getCalendarUser() {
+        return calendarUser;
+    }
 }

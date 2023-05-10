@@ -1,26 +1,55 @@
-package main.java.com.uep.wap.model;
+package com.uep.wap.model;
 
+import javax.persistence.*;
 import java.util.List;
 
 public class AppProjectManagementII {
     @Id
-    @Column(name = "app_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long appId;
 
-    @Column(name = "projects")
     @OneToMany(mappedBy = "app", cascade = CascadeType.ALL)
     private List<Project> projects;
 
-    @Column(name = "users")
     @OneToMany(mappedBy = "app", cascade = CascadeType.ALL)
     private List<User> users;
 
-    @Column(name = "notifications")
     @OneToMany(mappedBy = "app", cascade = CascadeType.ALL)
     private List<Notification> notifications;
 
+    public AppProjectManagementII() {
+    }
+
+    public long getAppId() {
+        return appId;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
 
 
+    public void setAppId(long appId) {
+        this.appId = appId;
+    }
 
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
 }

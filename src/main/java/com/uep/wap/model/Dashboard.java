@@ -1,24 +1,59 @@
-package main.java.com.uep.wap.model;
+package com.uep.wap.model;
 
 import java.util.List;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Dashboards")
 public class Dashboard {
     @Id
-    @Column(name = "dashboard_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long dashboardId;
 
-    @Column(name = "dashboard_name")
+
     private String dashboardName;
 
-    @Column(name = "projects")
-    private List<Project> projects;
+    @OneToOne
+    @JoinColumn(name = "dashboard")
+    private Project projects;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    @Column(name = "user")
+    @JoinColumn(name = "dashboards")
     private User user;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Dashboard() {
+    }
+
+    public long getDashboardId() {
+        return dashboardId;
+    }
+
+    public void setDashboardId(long dashboardId) {
+        this.dashboardId = dashboardId;
+    }
+
+    public void setDashboardName(String dashboardName) {
+        this.dashboardName = dashboardName;
+    }
+
+    public void setProjects(Project projects) {
+        this.projects = projects;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getDashboardName() {
+        return dashboardName;
+    }
+
+    public Project getProjects() {
+        return projects;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
 }

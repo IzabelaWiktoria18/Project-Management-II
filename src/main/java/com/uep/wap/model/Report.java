@@ -1,19 +1,44 @@
-package main.java.com.uep.wap.model;
-
+package com.uep.wap.model;
+import javax.persistence.*;
 @Entity
 @Table(name = "Calendar")
 public class Report {
     @Id
-    @Column(name = "report_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long reportId;
 
-    @Column(name = "report_name")
+
     private String reportName;
 
-    @Column(name = "project")
-    @JoinColumn(name = "project_id")
+
+    @JoinColumn(name = "projectReports")
     @ManyToOne
     private Project project;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Report() {
+    }
+
+    public void setReportId(long reportId) {
+        this.reportId = reportId;
+    }
+
+    public void setReportName(String reportName) {
+        this.reportName = reportName;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public long getReportId() {
+        return reportId;
+    }
+
+    public String getReportName() {
+        return reportName;
+    }
+
+    public Project getProject() {
+        return project;
+    }
 }
