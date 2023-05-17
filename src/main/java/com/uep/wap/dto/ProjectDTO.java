@@ -1,56 +1,26 @@
-package com.uep.wap.model;
-import javax.persistence.*;
-import java.util.List;
+package com.uep.wap.dto;
+
+import com.uep.wap.model.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "Projects")
-public class Project{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ProjectId;
-
-
+public class ProjectDTO {
     private String projectName;
 
-
-    @ManyToMany
-    @JoinColumn(name = "listOfProjects")
     private List<User> usersList;
 
-
-    @ManyToOne
-    @JoinColumn(name = "project")
     private Team assignedTeam;
 
-
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<Report> projectReports;
 
-
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<Task> tasksList;
 
-    @ManyToOne
-    @JoinColumn(name = "projects")
     private AppProjectManagementII app;
 
-    @OneToOne(mappedBy = "projectName", cascade = CascadeType.ALL)
     private KanbanBoard kanbanBoard;
 
-    @OneToOne
-    @JoinColumn(name = "project")
     private Dashboard dashboard;
-
-    public Project() {
-    }
-
-    public void setProjectId(long projectId) {
-        ProjectId = projectId;
-    }
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
@@ -82,10 +52,6 @@ public class Project{
 
     public void setDashboard(Dashboard dashboard) {
         this.dashboard = dashboard;
-    }
-
-    public long getProjectId() {
-        return ProjectId;
     }
 
     public String getProjectName() {

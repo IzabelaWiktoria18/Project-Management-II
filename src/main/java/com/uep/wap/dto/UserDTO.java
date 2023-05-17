@@ -1,60 +1,32 @@
-package com.uep.wap.model;
+package com.uep.wap.dto;
 
-import java.util.List;
+import com.uep.wap.model.*;
+
 import javax.persistence.*;
+import java.util.List;
 
-@Entity
-@Table(name = "Users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long UserId;
-
+public class UserDTO {
     private String userName;
-
 
     private String userSurname;
 
-
     private String userRole;
-
 
     private String eMail;
 
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Notification> listOfNotifications;
 
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Dashboard> dashboards;
 
-
-    @ManyToOne
-    @JoinColumn(name = "users")
-    //TODO nwm czemu krzyczy
     private AppProjectManagementII app;
 
-    @OneToOne(mappedBy = "calendarUser", cascade = CascadeType.ALL)
     private Calendar calendar;
 
-    @OneToOne
-    @JoinColumn(name = "assignedUser")
     private Task task;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "listOfMembers")
     private List<Team> listOfTeams;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usersList")
     private List<Team> listOfProjects;
-    public User() {
-    }
-
-    public void setUserId(long userId) {
-        UserId = userId;
-    }
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -98,10 +70,6 @@ public class User {
 
     public void setListOfProjects(List<Team> listOfProjects) {
         this.listOfProjects = listOfProjects;
-    }
-
-    public long getUserId() {
-        return UserId;
     }
 
     public String getUserName() {

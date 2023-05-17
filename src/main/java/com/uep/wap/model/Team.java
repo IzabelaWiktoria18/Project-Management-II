@@ -19,7 +19,7 @@ public class Team {
 
 
         @OneToMany(mappedBy = "assignedTeam", cascade = CascadeType.ALL)
-        private Project project;
+        private List<Project> project;
 
 
         @JoinColumn(name = "listOfTeams")
@@ -45,11 +45,11 @@ public class Team {
                 this.listOfMembers = listOfMembers;
         }
 
-        public Project getProject() {
+        public List<Project> getProject() {
                 return project;
         }
 
-        public void setProject(Project project) {
+        public void setProject(List<Project> project) {
                 this.project = project;
         }
 
