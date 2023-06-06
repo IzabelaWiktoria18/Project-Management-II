@@ -15,10 +15,10 @@ public class CalendarController {
         this.calendarsService = calendarsService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
+//    @GetMapping(path = "/hello")
+//    public String sayHello(){
+//        return "Hello!";
+//    }
 
     @GetMapping(path = "/calendars")
     public Iterable<Calendar> getAllStudents(){

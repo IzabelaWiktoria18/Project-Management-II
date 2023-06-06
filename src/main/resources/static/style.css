@@ -1,0 +1,137 @@
+body
+{
+    background-color: rgba(60,63,65,255);
+    margin: 0;
+    font-family: 'Tahoma';
+}
+
+/*========NAWIGACJA========*/
+
+header
+{
+    width: 100%;
+    height: 100px;
+    background-color: rgba(43,43,43,255);
+    color: white;
+}
+
+.head_part
+{
+    float: left;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1.logo
+{
+    margin-left: 20px;
+}
+
+.nav_button
+{
+    width: 80px;
+    height: 40px;
+    font-size: 18px;
+    margin-right: 20px;
+}
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/*=========================*/
+
+/*========GŁÓWNA STRONA========*/
+
+#side_nav
+{
+    float: left;
+    padding: 16px;
+    width: 300px;
+}
+
+main
+{
+    width: 800px;
+    padding: 16px;
+    background-color: rgba(60,63,65,255);
+    float: left;
+}
+
+#container
+{
+    clear: both;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer
+{
+    clear: both;
+    width: 100%;
+    text-align: center;
+    text-align-last: center;
+    padding: 10px 0 10px 0;
+    background-color: rgba(43,43,43,255);
+    color: white;
+}
+
+/*=============================*/
+
+/*========KURSY NA DANYM WYDZIALE========*/
+
+.course
+{
+    width: 250px;
+    height: 100px;
+    text-align: center;
+    text-align-last: center;
+    background-color: lightgray;
+    float: left;
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-bottom: 16px;
+    color: black;
+}
+
+.course:hover
+{
+    color: white;
+    background-color: darkgray;
+}
+
+.resource
+{
+    border-top: gray dashed 2px;
+    margin-top: 30px;
+}
+
+h3.topic_title
+{
+    text-align: center;
+    color: gray;
+}
+
+fieldset{
+    border: none;
+}
+
+legend{
+    color: aliceblue;
+}
+
+h2{
+    color: aliceblue;
+}
+
+h1{
+    color: aliceblue;
+}
+
+label{
+    color: aliceblue;
+}
+
+/*========================================*/

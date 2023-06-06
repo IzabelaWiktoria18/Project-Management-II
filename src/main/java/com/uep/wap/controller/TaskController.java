@@ -16,10 +16,10 @@ public class TaskController {
         this.tasksService = tasksService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
+//    @GetMapping(path = "/hello")
+//    public String sayHello(){
+//        return "Hello!";
+//    }
 
     @GetMapping(path = "/tasks")
     public Iterable<Task> getAllTasks(){

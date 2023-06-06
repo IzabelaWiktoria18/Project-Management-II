@@ -1,5 +1,5 @@
 package com.uep.wap.model;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Calendar")
@@ -11,7 +11,7 @@ public class Calendar {
 
     @OneToOne
     @JoinColumn(name = "calendar")
-    private User calendarUser;
+    private _User calendarUser;
 
     public Calendar() {
     }
@@ -20,7 +20,7 @@ public class Calendar {
         this.calendarId = calendarId;
     }
 
-    public void setCalendarUser(User calendarUser) {
+    public void setCalendarUser(_User calendarUser) {
         this.calendarUser = calendarUser;
     }
 
@@ -28,7 +28,7 @@ public class Calendar {
         return calendarId;
     }
 
-    public User getCalendarUser() {
+    public _User getCalendarUser() {
         return calendarUser;
     }
 }

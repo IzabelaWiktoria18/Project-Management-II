@@ -16,10 +16,10 @@ public class ProjectController {
         this.projectsService = projectsService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
+//    @GetMapping(path = "/hello")
+//    public String sayHello(){
+//        return "Hello!";
+//    }
 
     @GetMapping(path = "/projects")
     public Iterable<Project> getAllProjects(){

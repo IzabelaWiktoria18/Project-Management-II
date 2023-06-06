@@ -1,5 +1,5 @@
 package com.uep.wap.model;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Notifications")
@@ -18,7 +18,7 @@ public class Notification {
 
     @ManyToOne
     @JoinColumn(name = "listOfNotifications")
-    private User user;
+    private _User user;
 
     public Notification() {
     }
@@ -35,7 +35,7 @@ public class Notification {
         this.app = app;
     }
 
-    public void setUser(User user) {
+    public void setUser(_User user) {
         this.user = user;
     }
 
@@ -51,7 +51,7 @@ public class Notification {
         return app;
     }
 
-    public User getUser() {
+    public _User getUser() {
         return user;
     }
 }

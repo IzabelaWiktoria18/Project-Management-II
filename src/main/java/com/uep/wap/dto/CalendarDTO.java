@@ -1,17 +1,16 @@
 package com.uep.wap.dto;
 
-import com.uep.wap.model.User;
+import com.uep.wap.model._User;
 
-import javax.persistence.*;
 
 public class CalendarDTO {
-    private User calendarUser;
+    private _User calendarUser;
 
-    public void setCalendarUser(User calendarUser) {
+    public void setCalendarUser(_User calendarUser) {
         this.calendarUser = calendarUser;
     }
 
-    public User getCalendarUser() {
+    public _User getCalendarUser() {
         return calendarUser;
     }
 }

@@ -16,10 +16,10 @@ public class DashboardController {
         this.dashboardsService = dashboardsService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
+//    @GetMapping(path = "/hello")
+//    public String sayHello(){
+//        return "Hello!";
+//    }
 
     @GetMapping(path = "/dashboards")
     public Iterable<Dashboard> getAllStudents(){

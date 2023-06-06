@@ -1,7 +1,7 @@
 package com.uep.wap.model;
 
 import java.util.Date;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Task")
@@ -17,7 +17,7 @@ public class Task {
     private Date estimatedTime;
 
     @OneToOne(mappedBy = "task", cascade = CascadeType.ALL)
-    private User assignedUser;
+    private _User assignedUser;
 
 
     @ManyToOne
@@ -52,7 +52,7 @@ public class Task {
         return expirationDate;
     }
 
-    public User getAssignedUser() {
+    public _User getAssignedUser() {
         return assignedUser;
     }
 
@@ -68,7 +68,7 @@ public class Task {
         this.estimatedTime = estimatedTime;
     }
 
-    public void setAssignedUser(User assignedUser) {
+    public void setAssignedUser(_User assignedUser) {
         this.assignedUser = assignedUser;
     }
 

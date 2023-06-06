@@ -16,10 +16,10 @@ public class ReportController {
         this.reportsService = reportsService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
+//    @GetMapping(path = "/hello")
+//    public String sayHello(){
+//        return "Hello!";
+//    }
 
     @GetMapping(path = "/report")
     public Iterable<Report> getAllReports(){

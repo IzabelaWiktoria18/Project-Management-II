@@ -2,7 +2,6 @@ package com.uep.wap.dto;
 
 import com.uep.wap.model.Project;
 
-import javax.persistence.*;
 
 public class ReportDTO {
     private String reportName;

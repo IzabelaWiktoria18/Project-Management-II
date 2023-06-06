@@ -1,152 +1,44 @@
 package com.uep.wap.model;
 
-import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.Collection;
+
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
-@Table(name = "Users")
-public class User {
+@Table(name = "users")
+public class User
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long UserId;
+    private Long user_id;
 
-    private String userName;
+    private String login;
+    private String password;
+    private String email;
+    private String first_name;
+    private String last_name;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id")
+    )
+    private Collection<Role> roles;
 
-    private String userSurname;
-
-
-    private String userRole;
-
-
-    private String eMail;
-
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Notification> listOfNotifications;
-
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Dashboard> dashboards;
-
-
-    @ManyToOne
-    @JoinColumn(name = "users")
-    //TODO nwm czemu krzyczy
-    private AppProjectManagementII app;
-
-    @OneToOne(mappedBy = "calendarUser", cascade = CascadeType.ALL)
-    private Calendar calendar;
-
-    @OneToOne
-    @JoinColumn(name = "assignedUser")
-    private Task task;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "listOfMembers")
-    private List<Team> listOfTeams;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usersList")
-    private List<Team> listOfProjects;
-    public User() {
+    public User(String login, String password, String email, String first_name, String last_name, Collection<Role> roles)
+    {
+        this.login = login;
+        this.password = password;
+        this.email = email;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.roles = roles;
     }
-
-    public void setUserId(long userId) {
-        UserId = userId;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setUserSurname(String userSurname) {
-        this.userSurname = userSurname;
-    }
-
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
-    }
-
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
-    }
-
-    public void setListOfNotifications(List<Notification> listOfNotifications) {
-        this.listOfNotifications = listOfNotifications;
-    }
-
-    public void setDashboards(List<Dashboard> dashboards) {
-        this.dashboards = dashboards;
-    }
-
-    public void setApp(AppProjectManagementII app) {
-        this.app = app;
-    }
-
-    public void setCalendar(Calendar calendar) {
-        this.calendar = calendar;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
-
-    public void setListOfTeams(List<Team> listOfTeams) {
-        this.listOfTeams = listOfTeams;
-    }
-
-    public void setListOfProjects(List<Team> listOfProjects) {
-        this.listOfProjects = listOfProjects;
-    }
-
-    public long getUserId() {
-        return UserId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getUserSurname() {
-        return userSurname;
-    }
-
-    public String getUserRole() {
-        return userRole;
-    }
-
-    public String geteMail() {
-        return eMail;
-    }
-
-    public List<Notification> getListOfNotifications() {
-        return listOfNotifications;
-    }
-
-    public List<Dashboard> getDashboards() {
-        return dashboards;
-    }
-
-    public AppProjectManagementII getApp() {
-        return app;
-    }
-
-    public Calendar getCalendar() {
-        return calendar;
-    }
-
-    public Task getTask() {
-        return task;
-    }
-
-    public List<Team> getListOfTeams() {
-        return listOfTeams;
-    }
-
-    public List<Team> getListOfProjects() {
-        return listOfProjects;
-    }
-
-
 }

@@ -16,10 +16,10 @@ public class TeamController {
         this.teamsService = teamsService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
+//    @GetMapping(path = "/hello")
+//    public String sayHello(){
+//        return "Hello!";
+//    }
 
     @GetMapping(path = "/teams")
     public Iterable<Team> getAllTeams(){

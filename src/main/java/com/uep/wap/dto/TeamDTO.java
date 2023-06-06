@@ -2,23 +2,22 @@ package com.uep.wap.dto;
 
 import com.uep.wap.model.KanbanBoard;
 import com.uep.wap.model.Project;
-import com.uep.wap.model.User;
+import com.uep.wap.model._User;
 
-import javax.persistence.*;
 import java.util.List;
 
 public class TeamDTO {
-    private List<User> listOfMembers;
+    private List<_User> listOfMembers;
 
     private List<Project> project;
 
     private KanbanBoard kanbanBoard;
 
-    public List<User> getListOfMembers() {
+    public List<_User> getListOfMembers() {
         return listOfMembers;
     }
 
-    public void setListOfMembers(List<User> listOfMembers) {
+    public void setListOfMembers(List<_User> listOfMembers) {
         this.listOfMembers = listOfMembers;
     }
 

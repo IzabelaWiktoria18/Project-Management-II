@@ -1,16 +1,16 @@
 package com.uep.wap.dto;
 
 import com.uep.wap.model.AppProjectManagementII;
-import com.uep.wap.model.User;
+import com.uep.wap.model._User;
 
-import javax.persistence.*;
+
 
 public class NotificationDTO {
     private String notificationName;
 
     private AppProjectManagementII app;
 
-    private User user;
+    private _User user;
 
     public void setNotificationName(String notificationName) {
         this.notificationName = notificationName;
@@ -20,7 +20,7 @@ public class NotificationDTO {
         this.app = app;
     }
 
-    public void setUser(User user) {
+    public void setUser(_User user) {
         this.user = user;
     }
 
@@ -32,7 +32,7 @@ public class NotificationDTO {
         return app;
     }
 
-    public User getUser() {
+    public _User getUser() {
         return user;
     }
 }

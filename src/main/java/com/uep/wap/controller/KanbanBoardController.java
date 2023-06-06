@@ -16,10 +16,10 @@ public class KanbanBoardController {
         this.kanbanBoardsService = kanbanBoardsService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
+//    @GetMapping(path = "/hello")
+//    public String sayHello(){
+//        return "Hello!";
+//    }
 
     @GetMapping(path = "/kanbanBoards")
     public Iterable<KanbanBoard> getAllKanbanBoards(){

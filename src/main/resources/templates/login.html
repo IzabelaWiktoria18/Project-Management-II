@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset = "UTF-8">
+    <title>Project Management - Sign in</title>
+    <link rel = "stylesheet" type = "text/css" href = "/style.css"/> <!--w finalnej wersji zmienić ścieżkę na style.css-->
+    <link rel = "stylesheet" type = "text/css" href = "/register.css"/>
+</head>
+<body>
+    <header>
+        <div class = "head_part">
+            <h1 class = "logo">Project Management Application</h1>
+        </div>
+        <div class = "head_part" style = "text-align: right;">
+            <br/>
+            <a href = "/sign-in"><input class = "nav_button" type = "button" value = "Sign in"/></a>
+            <a href = "/register"><input class = "nav_button" type = "button" value = "Register"/></a>
+        </div>
+    </header>
+    <div id = "container">
+        <nav id = "side_nav">
+            <ul>
+                <li><a href = "/">Home</a></li>
+                <li><a href = "/">Projects</a></li>
+                <li><a href = "/">Notifications</a></li>
+                <li><a href = "/">Calendar</a></li>
+                <li><a href = "/">Tasks</a></li>
+                <li><a href = "/">Reports</a></li>
+            </ul>
+        </nav>
+        <main style = "height: 800px;">
+            <h2>Sign in</h2>
+
+            <form id = "signing_in" th:action = "@{/sign-in}" method = "post">
+
+                <div class="half_form">
+                    <fieldset class = "class_field"><legend>Login</legend>
+                        <input class = "form_text_block" name = "login" type = "text" required/>
+                        <span style = "color: red" th:if = "${param.warning_login}">Login is incorrect.</span>
+                    </fieldset>
+                    <fieldset class = "class_field"><legend>Password</legend>
+                        <input class = "form_text_block" name = "password" type = "password" required/>
+                        <span style = "color: red" th:if = "${param.warning_password}">Password is incorrect.</span>
+                    </fieldset>
+                    <br/><input id = "SIGNIN" type = "submit" value = "Sign in"/>
+                </div>
+                <div class="half_form">
+
+                </div>
+
+            </form>
+
+        </main>
+    </div>
+    <footer>
+        <h5>Authors: Michał Kogowski, Szymon Chrobot</h5>
+    </footer>
+</body>
+</html>

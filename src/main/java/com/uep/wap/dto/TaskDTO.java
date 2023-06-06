@@ -2,9 +2,8 @@ package com.uep.wap.dto;
 
 import com.uep.wap.model.KanbanBoard;
 import com.uep.wap.model.Project;
-import com.uep.wap.model.User;
+import com.uep.wap.model._User;
 
-import javax.persistence.*;
 import java.util.Date;
 
 public class TaskDTO {
@@ -13,7 +12,7 @@ public class TaskDTO {
 
     private Date estimatedTime;
 
-    private User assignedUser;
+    private _User assignedUser;
 
     private Project project;
 
@@ -32,7 +31,7 @@ public class TaskDTO {
         return expirationDate;
     }
 
-    public User getAssignedUser() {
+    public _User getAssignedUser() {
         return assignedUser;
     }
 
@@ -48,7 +47,7 @@ public class TaskDTO {
         this.estimatedTime = estimatedTime;
     }
 
-    public void setAssignedUser(User assignedUser) {
+    public void setAssignedUser(_User assignedUser) {
         this.assignedUser = assignedUser;
     }
 

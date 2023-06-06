@@ -1,0 +1,39 @@
+/*========REJESTRACJA========*/
+
+.class_field
+{
+    clear: both !important;
+    margin-bottom: 10px;
+}
+
+.form_text_block
+{
+    width: 250px !important;
+    font-size: 20px;
+    height: 30px !important;
+}
+
+.half_form
+{
+    width: 300px;
+    float: left;
+    margin-right: 50px;
+}
+
+#REGIS
+{
+    /*clear: both !important;*/
+    width: 100px; 
+    height: 30px; 
+    font-size: 20px;
+    margin-top: 75px !important;
+}
+
+#SIGNIN
+{
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+}
+
+/*===========================*/

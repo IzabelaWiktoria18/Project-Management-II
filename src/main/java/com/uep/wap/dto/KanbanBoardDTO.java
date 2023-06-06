@@ -4,7 +4,7 @@ import com.uep.wap.model.Project;
 import com.uep.wap.model.Task;
 import com.uep.wap.model.Team;
 
-import javax.persistence.*;
+
 import java.util.List;
 
 public class KanbanBoardDTO {

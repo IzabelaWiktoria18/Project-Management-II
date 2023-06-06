@@ -1,7 +1,6 @@
 package com.uep.wap.model;
 
-import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Dashboards")
@@ -19,7 +18,7 @@ public class Dashboard {
 
     @ManyToOne
     @JoinColumn(name = "dashboards")
-    private User user;
+    private _User user;
 
     public Dashboard() {
     }
@@ -40,7 +39,7 @@ public class Dashboard {
         this.projects = projects;
     }
 
-    public void setUser(User user) {
+    public void setUser(_User user) {
         this.user = user;
     }
 
@@ -52,7 +51,7 @@ public class Dashboard {
         return projects;
     }
 
-    public User getUser() {
+    public _User getUser() {
         return user;
     }
 

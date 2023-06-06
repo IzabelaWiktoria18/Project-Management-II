@@ -2,13 +2,12 @@ package com.uep.wap.dto;
 
 import com.uep.wap.model.*;
 
-import javax.persistence.*;
 import java.util.List;
 
 public class ProjectDTO {
     private String projectName;
 
-    private List<User> usersList;
+    private List<_User> usersList;
 
     private Team assignedTeam;
 
@@ -26,7 +25,7 @@ public class ProjectDTO {
         this.projectName = projectName;
     }
 
-    public void setUsersList(List<User> usersList) {
+    public void setUsersList(List<_User> usersList) {
         this.usersList = usersList;
     }
 
@@ -58,7 +57,7 @@ public class ProjectDTO {
         return projectName;
     }
 
-    public List<User> getUsersList() {
+    public List<_User> getUsersList() {
         return usersList;
     }
 

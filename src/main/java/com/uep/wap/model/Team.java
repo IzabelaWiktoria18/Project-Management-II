@@ -1,7 +1,7 @@
 package com.uep.wap.model;
 
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Teams")
@@ -13,7 +13,7 @@ public class Team {
 
         @ManyToMany
         @JoinColumn(name = "listOfTeams")
-        private List<User> listOfMembers;
+        private List<_User> listOfMembers;
 
 
 
@@ -37,11 +37,11 @@ public class Team {
                 this.teamId = teamId;
         }
 
-        public List<User> getListOfMembers() {
+        public List<_User> getListOfMembers() {
                 return listOfMembers;
         }
 
-        public void setListOfMembers(List<User> listOfMembers) {
+        public void setListOfMembers(List<_User> listOfMembers) {
                 this.listOfMembers = listOfMembers;
         }
 

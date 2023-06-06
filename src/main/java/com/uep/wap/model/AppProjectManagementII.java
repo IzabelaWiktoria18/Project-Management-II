@@ -1,8 +1,10 @@
 package com.uep.wap.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "AppProjectManagmentIIs")
 public class AppProjectManagementII {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,7 +14,7 @@ public class AppProjectManagementII {
     private List<Project> projects;
 
     @OneToMany(mappedBy = "app", cascade = CascadeType.ALL)
-    private List<User> users;
+    private List<_User> users;
 
     @OneToMany(mappedBy = "app", cascade = CascadeType.ALL)
     private List<Notification> notifications;
@@ -28,7 +30,7 @@ public class AppProjectManagementII {
         return projects;
     }
 
-    public List<User> getUsers() {
+    public List<_User> getUsers() {
         return users;
     }
 
@@ -45,7 +47,7 @@ public class AppProjectManagementII {
         this.projects = projects;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<_User> users) {
         this.users = users;
     }
 

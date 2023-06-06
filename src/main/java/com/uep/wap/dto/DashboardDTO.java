@@ -1,16 +1,15 @@
 package com.uep.wap.dto;
 
 import com.uep.wap.model.Project;
-import com.uep.wap.model.User;
+import com.uep.wap.model._User;
 
-import javax.persistence.*;
 
 public class DashboardDTO {
     private String dashboardName;
 
     private Project projects;
 
-    private User user;
+    private _User user;
 
     public void setDashboardName(String dashboardName) {
         this.dashboardName = dashboardName;
@@ -20,7 +19,7 @@ public class DashboardDTO {
         this.projects = projects;
     }
 
-    public void setUser(User user) {
+    public void setUser(_User user) {
         this.user = user;
     }
 
@@ -32,7 +31,7 @@ public class DashboardDTO {
         return projects;
     }
 
-    public User getUser() {
+    public _User getUser() {
         return user;
     }
 }

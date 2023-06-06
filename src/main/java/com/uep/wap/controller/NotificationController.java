@@ -16,10 +16,10 @@ public class NotificationController {
         this.notificationsService = notificationsService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
+//    @GetMapping(path = "/hello")
+//    public String sayHello(){
+//        return "Hello!";
+//    }
 
     @GetMapping(path = "/notifications")
     public Iterable<Notification> getAllNotifications(){

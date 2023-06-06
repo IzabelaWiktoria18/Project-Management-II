@@ -2,15 +2,14 @@ package com.uep.wap.dto;
 
 import com.uep.wap.model.Notification;
 import com.uep.wap.model.Project;
-import com.uep.wap.model.User;
+import com.uep.wap.model._User;
 
-import javax.persistence.*;
 import java.util.List;
 
 public class AppProjectManagementIIDTO {
     private List<Project> projects;
 
-    private List<User> users;
+    private List<_User> users;
 
     private List<Notification> notifications;
 
@@ -19,7 +18,7 @@ public class AppProjectManagementIIDTO {
         return projects;
     }
 
-    public List<User> getUsers() {
+    public List<_User> getUsers() {
         return users;
     }
 
@@ -31,7 +30,7 @@ public class AppProjectManagementIIDTO {
         this.projects = projects;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<_User> users) {
         this.users = users;
     }
 
