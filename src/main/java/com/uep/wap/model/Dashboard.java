@@ -12,9 +12,9 @@ public class Dashboard {
 
     private String dashboardName;
 
-    @OneToOne
-    @JoinColumn(name = "dashboard")
-    private Project projects;
+//    @OneToOne
+//    @JoinColumn(name = "dashboard")
+//    private Project projects;
 
     @ManyToOne
     @JoinColumn(name = "dashboards")
@@ -35,9 +35,9 @@ public class Dashboard {
         this.dashboardName = dashboardName;
     }
 
-    public void setProjects(Project projects) {
-        this.projects = projects;
-    }
+//    public void setProjects(Project projects) {
+//        this.projects = projects;
+//    }
 
     public void setUser(_User user) {
         this.user = user;
@@ -47,9 +47,9 @@ public class Dashboard {
         return dashboardName;
     }
 
-    public Project getProjects() {
-        return projects;
-    }
+//    public Project getProjects() {
+//        return projects;
+//    }
 
     public _User getUser() {
         return user;

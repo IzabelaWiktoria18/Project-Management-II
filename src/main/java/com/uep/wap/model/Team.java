@@ -18,8 +18,8 @@ public class Team {
 
 
 
-        @OneToMany(mappedBy = "assignedTeam", cascade = CascadeType.ALL)
-        private List<Project> project;
+//        @OneToMany(mappedBy = "assignedTeam", cascade = CascadeType.ALL)
+//        private List<Project> project;
 
 
         @JoinColumn(name = "listOfTeams")
@@ -45,13 +45,13 @@ public class Team {
                 this.listOfMembers = listOfMembers;
         }
 
-        public List<Project> getProject() {
-                return project;
-        }
+//        public List<Project> getProject() {
+//                return project;
+//        }
 
-        public void setProject(List<Project> project) {
-                this.project = project;
-        }
+//        public void setProject(List<Project> project) {
+//                this.project = project;
+//        }
 
         public KanbanBoard getKanbanBoard() {
                 return kanbanBoard;

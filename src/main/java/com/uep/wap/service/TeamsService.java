@@ -14,7 +14,7 @@ public class TeamsService {
     public void addTeam(TeamDTO teamDTO) {
         Team team = new Team();
         team.setKanbanBoard(teamDTO.getKanbanBoard());
-        team.setProject(teamDTO.getProject());
+//        team.setProject(teamDTO.getProject());
         team.setListOfMembers(teamDTO.getListOfMembers());
         teamRepository.save(team);
         System.out.println("team added!");

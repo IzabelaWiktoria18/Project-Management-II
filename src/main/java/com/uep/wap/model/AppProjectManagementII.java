@@ -10,8 +10,8 @@ public class AppProjectManagementII {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long appId;
 
-    @OneToMany(mappedBy = "app", cascade = CascadeType.ALL)
-    private List<Project> projects;
+//    @OneToMany(mappedBy = "app", cascade = CascadeType.ALL)
+//    private List<Project> projects;
 
     @OneToMany(mappedBy = "app", cascade = CascadeType.ALL)
     private List<_User> users;
@@ -26,9 +26,9 @@ public class AppProjectManagementII {
         return appId;
     }
 
-    public List<Project> getProjects() {
-        return projects;
-    }
+//    public List<Project> getProjects() {
+//        return projects;
+//    }
 
     public List<_User> getUsers() {
         return users;
@@ -43,9 +43,9 @@ public class AppProjectManagementII {
         this.appId = appId;
     }
 
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
-    }
+//    public void setProjects(List<Project> projects) {
+//        this.projects = projects;
+//    }
 
     public void setUsers(List<_User> users) {
         this.users = users;

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Collection;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -32,7 +33,15 @@ public class User
     )
     private Collection<Role> roles;
 
-    public User(String login, String password, String email, String first_name, String last_name, Collection<Role> roles)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_projects",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "projectId", referencedColumnName = "projectId")
+    )
+    private List<Project> projectsForUser;
+
+    public User(String login, String password, String email, String first_name, String last_name, Collection<Role> roles, List<Project> projects)
     {
         this.login = login;
         this.password = password;
@@ -40,5 +49,10 @@ public class User
         this.first_name = first_name;
         this.last_name = last_name;
         this.roles = roles;
+        this.projectsForUser = projects;
+    }
+
+    public String getFirstProjectName(){
+        return this.projectsForUser.get(0).getProjectName();
     }
 }

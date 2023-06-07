@@ -15,14 +15,14 @@ public class ProjectsService {
 
     public void addProject(ProjectDTO projectDTO) {
         Project project = new Project();
-        project.setApp(projectDTO.getApp());
+//        project.setApp(projectDTO.getApp());
         project.setProjectName(projectDTO.getProjectName());
-        project.setProjectReports(projectDTO.getProjectReports());
-        project.setAssignedTeam(projectDTO.getAssignedTeam());
-        project.setKanbanBoard(projectDTO.getKanbanBoard());
-        project.setTasksList(projectDTO.getTasksList());
-        project.setUsersList(projectDTO.getUsersList());
-        project.setDashboard(projectDTO.getDashboard());
+//        project.setProjectReports(projectDTO.getProjectReports());
+//        project.setAssignedTeam(projectDTO.getAssignedTeam());
+//        project.setKanbanBoard(projectDTO.getKanbanBoard());
+//        project.setTasksList(projectDTO.getTasksList());
+//        project.setUsersList(projectDTO.getUsersList());
+//        project.setDashboard(projectDTO.getDashboard());
         projectRepository.save(project);
         System.out.println("Project added!");
     }

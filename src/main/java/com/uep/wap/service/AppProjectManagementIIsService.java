@@ -13,7 +13,7 @@ public class AppProjectManagementIIsService {
 
     public void addAppProjectManagementII(AppProjectManagementIIDTO appProjectManagementIIDTO) {
         AppProjectManagementII appProjectManagementII = new AppProjectManagementII();
-        appProjectManagementII.setProjects(appProjectManagementIIDTO.getProjects());
+//        appProjectManagementII.setProjects(appProjectManagementIIDTO.getProjects());
         appProjectManagementII.setNotifications(appProjectManagementIIDTO.getNotifications());
         appProjectManagementII.setUsers(appProjectManagementIIDTO.getUsers());
         appProjectManagementIIRepository.save(appProjectManagementII);

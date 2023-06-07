@@ -15,7 +15,7 @@ public class DashboardsService {
     public void addDashboard(DashboardDTO dashboardDTO) {
         Dashboard dashboard = new Dashboard();
         dashboard.setDashboardName(dashboardDTO.getDashboardName());
-        dashboard.setProjects(dashboardDTO.getProjects());
+//        dashboard.setProjects(dashboardDTO.getProjects());
         dashboard.setUser(dashboardDTO.getUser());
         dashboardRepository.save(dashboard);
         System.out.println("calendar added!");
