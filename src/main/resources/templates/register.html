@@ -8,26 +8,26 @@
 </head>
 <body>
     <header>
+        <div class="top-bar">
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/notifications">Notifications</a></li>
+                <li><a href="/calendar">Calendar</a></li>
+                <li><a href="/tasks">Tasks</a></li>
+                <li><a href="/reports">Reports</a></li>
+            </ul>
+        </div>
         <div class = "head_part">
             <h1 class = "logo">Project Management Application</h1>
         </div>
         <div class = "head_part" style = "text-align: right;">
             <br/>
-            <a href = "/sign-in"><input class = "nav_button" type = "button" value = "Sign in"/></a>
-            <a href = "/register"><input class = "nav_button" type = "button" value = "Register"/></a>
+            <a href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
+            <a href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
         </div>
     </header>
     <div id = "container">
-        <nav id = "side_nav">
-            <ul>
-                <li><a href = "/">Home</a></li>
-                <li><a href = "/">Projects</a></li>
-                <li><a href = "/">Notifications</a></li>
-                <li><a href = "/">Calendar</a></li>
-                <li><a href = "/">Tasks</a></li>
-                <li><a href = "/">Reports</a></li>
-            </ul>
-        </nav>
         <main style = "height: 800px;">
             <h2>Register</h2>
 
@@ -51,7 +51,7 @@
                     <fieldset class = "class_field"><legend>Password</legend>
                         <input class = "form_text_block" th:field = "*{password}" type = "password" required/>
                     </fieldset>
-                    <br/><br/><label for = "user_type">Which user are you?</label>
+                    <br/><br/><label for = "user_type">Choose your user type</label>
                     <select id = "user_type" th:field = "*{role}">
                         <option th:each = "role : ${availableRoles}" th:value = "${role.role_name}" th:text = "${role.role_name}">course coordinator</option> <!--th:selected = "${roles == 3}"-->
                     </select>
@@ -65,7 +65,7 @@
         </main>
     </div>
     <footer>
-        <h5>Izabela Noga</h5>
+        <h5>Authors: Izabela Noga, Jakub Ginczelewski</h5>
     </footer>
 </body>
 </html>

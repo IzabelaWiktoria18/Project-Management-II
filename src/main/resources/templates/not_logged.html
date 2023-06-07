@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset = "UTF-8">
+    <title>Project Management - Home</title>
+    <link rel = "stylesheet" type = "text/css" href = "/style.css"/> <!--w finalnej wersji zmienić ścieżkę na style.css-->
+</head>
+<body>
+<div class="top-bar">
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+        <li><a href="/calendar">Calendar</a></li>
+        <li><a href="/tasks">Tasks</a></li>
+        <li><a href="/reports">Reports</a></li>
+    </ul>
+</div>
+<header>
+    <div class = "head_part">
+        <h1 class = "logo">Project Management Application</h1>
+    </div>
+    <div class = "head_part" style = "text-align: right;">
+        <br/>
+        <a th:if = "${session.user == null}" href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
+        <a th:if = "${session.user == null}" href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
+    </div>
+</header>
+<div id = "container">
+    <main style = "height: 800px;">
+        <h2>Log in or sign up to get access to content</h2>
+        <p> </p>
+        <p> </p>
+        <!--Exemplary sites: Courses (IT Department), Course 1-->
+    </main>
+</div>
+<footer>
+    <h5>Authors: Izabela Noga, Jakub Ginczelewski</h5>
+</footer>
+</body>
+</html>
