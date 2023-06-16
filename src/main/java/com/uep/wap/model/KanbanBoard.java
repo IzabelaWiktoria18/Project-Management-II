@@ -10,9 +10,9 @@ public class KanbanBoard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long boardId;
 
-    @OneToOne
-    @JoinColumn(name = "kanbanBoard")
-    private Project projectName;
+//    @OneToOne
+//    @JoinColumn(name = "kanbanBoard")
+//    private Project projectName;
 
 
 //    @OneToMany(mappedBy = "kanbanBoard", cascade = CascadeType.ALL)
@@ -33,9 +33,9 @@ public class KanbanBoard {
         this.boardName = boardName;
     }
 
-    public void setProjectName(Project projectName) {
-        this.projectName = projectName;
-    }
+//    public void setProjectName(Project projectName) {
+//        this.projectName = projectName;
+//    }
 
 //    public void setListOfTeams(List<Team> listOfTeams) {
 //        this.listOfTeams = listOfTeams;
@@ -53,9 +53,9 @@ public class KanbanBoard {
         return boardName;
     }
 
-    public Project getProjectName() {
-        return projectName;
-    }
+//    public Project getProjectName() {
+//        return projectName;
+//    }
 
 //    public List<Team> getListOfTeams() {
 //        return listOfTeams;

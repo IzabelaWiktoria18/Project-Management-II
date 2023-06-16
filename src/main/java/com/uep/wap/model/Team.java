@@ -24,12 +24,12 @@ public class Team {
 //                inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id")
 //        )
 
-        @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-        private List<User> users;
+//        @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+//        private List<User> users;
 
 
-        @OneToMany(mappedBy = "projectTeam", cascade = CascadeType.ALL)
-        private List<Project> projects;
+//        @OneToMany(mappedBy = "projectTeam", cascade = CascadeType.ALL)
+//        private List<Project> projects;
 
         private String teamName;
 

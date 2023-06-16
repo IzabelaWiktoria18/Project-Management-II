@@ -22,7 +22,7 @@ public class Project{
 
     @OneToMany(mappedBy = "reportProject", cascade = CascadeType.ALL)
     private List<Report> projectReports;
-    private List<User> usersList;
+//    private List<User> usersList;
 
     @ManyToOne
     @JoinColumn(name = "team_id")

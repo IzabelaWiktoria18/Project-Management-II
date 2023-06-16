@@ -33,20 +33,19 @@
     </div>
   </div>
 </header>
-<div id="container">
-  <main style="height: 800px;">
-    <h2>Projects for user <span th:text="${session.user.getFirst_name()}">!</span> <span th:text="${session.user.last_name}">!</span></h2>
-    <td th:switch="${session.user.projectsForUser.size()}">
+<div id = "container">
+  <main style = "height: 800px;">
+    <h2>Currently open projects:</h2>
+    <td th:switch="${currentProjects.size()}">
       <h3 th:case="'0'">NO PROJECTS YET!</h3>
-      <ul><li th:case="'1'" th:text="${session.user.projectsForUser.get(0).getProjectName()}"></li></ul>
       <ul th:case="*">
-        <li th:each="project:${session.user.projectsForUser}" th:text="${project.getProjectName()}"/>
+        <li th:each="project:${currentProjects}" th:text="${project.getProjectName()}"/>
       </ul>
     </td>
+    <p>(To find projects assigned for <span th:text = "${session.user.getFirst_name()}">!</span> <span th:text = "${session.user.last_name}">!</span> go to My profile tab)</p>
     <p> </p>
-    <p> </p>
+    <a href = "/create-project"><input type = "button" value = "Create New Project"/></a>
     <!--Exemplary sites: Courses (IT Department), Course 1-->
-    <a href="/create-project"><button>Create New Project</button></a>
   </main>
 </div>
 <footer>

@@ -17,7 +17,7 @@ public class KanbanBoardsService {
         kanbanBoard.setBoardName(kanbanBoardDTO.getBoardName());
         kanbanBoard.setAssignedTasks(kanbanBoardDTO.getAssignedTasks());
 //        kanbanBoard.setListOfTeams(kanbanBoardDTO.getListOfTeams());
-        kanbanBoard.setProjectName(kanbanBoardDTO.getProjectName());
+//        kanbanBoard.setProjectName(kanbanBoardDTO.getProjectName());
         kanbanBoardRepository.save(kanbanBoard);
         System.out.println("calendar added!");
     }

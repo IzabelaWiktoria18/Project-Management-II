@@ -22,9 +22,9 @@ public class Task {
 
     private Date estimatedTime;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User userForTask;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private User userForTask;
 
 
     @ManyToOne

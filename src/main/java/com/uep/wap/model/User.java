@@ -41,12 +41,12 @@ public class User
     )
     private List<Project> projectsForUser;
 
-    @ManyToOne
-    @JoinColumn(name = "teamId")
-    private Team team;
-
-    @OneToMany(mappedBy = "userForTask", cascade = CascadeType.ALL)
-    private List<Task> tasksForUser;
+//    @ManyToOne
+//    @JoinColumn(name = "teamId")
+//    private Team team;
+//
+//    @OneToMany(mappedBy = "userForTask", cascade = CascadeType.ALL)
+//    private List<Task> tasksForUser;
 
     public User(String login, String password, String email, String first_name, String last_name, Collection<Role> roles, List<Project> projects)
     {

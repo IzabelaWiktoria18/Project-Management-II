@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset = "UTF-8">
+    <title>Project Management - Register</title>
+    <link rel = "stylesheet" type = "text/css" href = "/style.css"/> <!--w finalnej wersji zmienić ścieżkę na style.css-->
+    <link rel = "stylesheet" type = "text/css" href = "/register.css"/>
+</head>
+<body>
+<div class="top-bar">
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+        <li><a href="/calendar">Calendar</a></li>
+        <li><a href="/tasks">Tasks</a></li>
+        <li><a href="/reports">Reports</a></li>
+    </ul>
+</div>
+<header>
+
+    <div class = "head_part">
+        <h1 class = "logo">Project Management Application</h1>
+    </div>
+    <div class = "head_part" style = "text-align: right;">
+        <br/>
+        <a href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
+        <a href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
+    </div>
+</header>
+<div id = "container">
+    <main style = "height: 800px;">
+        <h2>Register</h2>
+
+        <form id = "registration" th:action = "@{/crproj}" method = "post" th:object = "${users}">
+
+            <div class = "half_form">
+                <fieldset class = "class_field"><legend>First Name</legend>
+                    <input class = "form_text_block" th:field = "*{first_name}" type = "text" required/>
+                </fieldset>
+                <fieldset class = "class_field"><legend>Last Name</legend>
+                    <input class = "form_text_block" th:field = "*{last_name}" type = "text" required/>
+                </fieldset>
+                <fieldset class = "class_field"><legend>E-mail</legend>
+                    <input class = "form_text_block" th:field = "*{email}" type = "text" required/>
+                    <span style = "color: red" th:if = "${param.warning_email}">This e-mail is claimed!</span>
+                </fieldset>
+                <fieldset class = "class_field"><legend>Login</legend>
+                    <input class = "form_text_block" th:field = "*{login}" type = "text" required/>
+                    <span style = "color: red" th:if = "${param.warning_login}">This login is claimed!</span>
+                </fieldset>
+                <fieldset class = "class_field"><legend>Password</legend>
+                    <input class = "form_text_block" th:field = "*{password}" type = "password" required/>
+                </fieldset>
+                <br/><br/><label for = "user_type">Choose your user type</label>
+                <select id = "user_type" th:field = "*{role}">
+                    <option th:each = "role : ${availableRoles}" th:value = "${role.role_name}" th:text = "${role.role_name}">course coordinator</option> <!--th:selected = "${roles == 3}"-->
+                </select>
+                <br/><br/><label><input name = "regulations" type = "checkbox" required/> Accept regulations</label>
+
+                <br/><input id = "REGIS" type = "submit" value = "Register"/>
+            </div>
+
+        </form>
+
+    </main>
+</div>
+<footer>
+    <h5>Authors: Izabela Noga, Jakub Ginczelewski</h5>
+</footer>
+</body>
+</html>
