@@ -2,7 +2,7 @@
 <html lang = "en" xmlns:th = "http://www.thymeleaf.org">
 <head>
     <meta charset = "UTF-8">
-    <title>Project Management - Sign in</title>
+    <title>Project Management - Register</title>
     <link rel = "stylesheet" type = "text/css" href = "/style.css"/> <!--w finalnej wersji zmienić ścieżkę na style.css-->
     <link rel = "stylesheet" type = "text/css" href = "/register.css"/>
 </head>
@@ -17,6 +17,7 @@
         <li><a href="/calendar">Calendar</a></li>
         <li><a href="/notifications">Notifications</a></li>
         <li><a href="/reports">Reports</a></li>
+
     </ul>
 </div>
     <header>
@@ -32,25 +33,24 @@
     </header>
     <div id = "container">
         <main style = "height: 800px;">
-            <h2>Sign in</h2>
+            <h2>Create Project</h2>
 
-            <form id = "signing_in" th:action = "@{/sign-in}" method = "post">
 
-                <div class="half_form">
-                    <fieldset class = "class_field"><legend>Login</legend>
-                        <input class = "form_text_block" name = "login" type = "text" required/>
-                        <span style = "color: red" th:if = "${param.warning_login}">Login is incorrect.</span>
+            <form id = "project_creation" th:action = "@{/project}" method = "post" th:object = "${projects}">
+                
+                <div class = "half_form">
+                    <fieldset class = "class_field"><legend>Project Name</legend>
+                        <input class = "form_text_block" th:field = "*{projectName}" type = "text" required/>
                     </fieldset>
-                    <fieldset class = "class_field"><legend>Password</legend>
-                        <input class = "form_text_block" name = "password" type = "password" required/>
-                        <span style = "color: red" th:if = "${param.warning_password}">Password is incorrect.</span>
-                    </fieldset>
-                    <br/><input id = "SIGNIN" type = "submit" value = "Sign in"/>
-                </div>
-                <div class="half_form">
+                    <br/><br/><label for = "user_type">Choose your user type</label>
+                    <select id = "user_type" th:field = "*{assignedTeam}">
+                        <option th:each = "team : ${availableTeams}" th:value = "${team.teamName}" th:text = "${team.teamName}">course coordinator</option>
+                    </select>
+                    <br/><br/><label><input name = "regulations" type = "checkbox" required/> Accept regulations</label>
 
+                    <br/><input id = "REGIS" type = "submit" value = "Register"/>
                 </div>
-
+                
             </form>
 
         </main>

@@ -15,7 +15,7 @@ public class ReportsService {
     public void addReport(ReportDTO reportDTO) {
         Report report = new Report();
         report.setReportName(reportDTO.getReportName());
-        report.setProject(reportDTO.getProject());
+        report.setReportProject(reportDTO.getProject());
         reportRepository.save(report);
         System.out.println("Report added!");
     }

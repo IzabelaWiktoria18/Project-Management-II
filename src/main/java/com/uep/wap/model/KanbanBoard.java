@@ -15,8 +15,8 @@ public class KanbanBoard {
     private Project projectName;
 
 
-    @OneToMany(mappedBy = "kanbanBoard", cascade = CascadeType.ALL)
-    private List<Team> listOfTeams;
+//    @OneToMany(mappedBy = "kanbanBoard", cascade = CascadeType.ALL)
+//    private List<Team> listOfTeams;
 
 
     @OneToMany(mappedBy = "kanbanBoard", cascade = CascadeType.ALL)
@@ -37,9 +37,9 @@ public class KanbanBoard {
         this.projectName = projectName;
     }
 
-    public void setListOfTeams(List<Team> listOfTeams) {
-        this.listOfTeams = listOfTeams;
-    }
+//    public void setListOfTeams(List<Team> listOfTeams) {
+//        this.listOfTeams = listOfTeams;
+//    }
 
     public void setAssignedTasks(List<Task> assignedTasks) {
         this.assignedTasks = assignedTasks;
@@ -57,9 +57,9 @@ public class KanbanBoard {
         return projectName;
     }
 
-    public List<Team> getListOfTeams() {
-        return listOfTeams;
-    }
+//    public List<Team> getListOfTeams() {
+//        return listOfTeams;
+//    }
 
     public List<Task> getAssignedTasks() {
         return assignedTasks;

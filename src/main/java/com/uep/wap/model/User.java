@@ -33,13 +33,20 @@ public class User
     )
     private Collection<Role> roles;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_projects",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "projectId", referencedColumnName = "projectId")
     )
     private List<Project> projectsForUser;
+
+    @ManyToOne
+    @JoinColumn(name = "teamId")
+    private Team team;
+
+    @OneToMany(mappedBy = "userForTask", cascade = CascadeType.ALL)
+    private List<Task> tasksForUser;
 
     public User(String login, String password, String email, String first_name, String last_name, Collection<Role> roles, List<Project> projects)
     {
@@ -50,9 +57,5 @@ public class User
         this.last_name = last_name;
         this.roles = roles;
         this.projectsForUser = projects;
-    }
-
-    public String getFirstProjectName(){
-        return this.projectsForUser.get(0).getProjectName();
     }
 }

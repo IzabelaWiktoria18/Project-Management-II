@@ -15,9 +15,9 @@ public class TasksService {
     public void addTask(TaskDTO taskDTO) {
         Task task = new Task();
         task.setTaskName(taskDTO.getTaskName());
-        task.setAssignedUser(taskDTO.getAssignedUser());
+//        task.setAssignedUser(taskDTO.getAssignedUser());
         task.setEstimatedTime(taskDTO.getEstimatedTime());
-        task.setProject(taskDTO.getProject());
+        task.setProjectForTask(taskDTO.getProject());
         task.setExpirationDate(taskDTO.getExpirationDate());
         task.setKanbanBoard(taskDTO.getKanbanBoard());
         taskRepository.save(task);

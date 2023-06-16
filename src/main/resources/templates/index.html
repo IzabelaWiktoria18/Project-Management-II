@@ -9,10 +9,12 @@
 <div class="top-bar">
     <ul class="menu">
         <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
         <li><a href="/projects">Projects</a></li>
-        <li><a href="/notifications">Notifications</a></li>
-        <li><a href="/calendar">Calendar</a></li>
         <li><a href="/tasks">Tasks</a></li>
+        <li><a href="/teams">Teams</a></li>
+        <li><a href="/calendar">Calendar</a></li>
+        <li><a href="/notifications">Notifications</a></li>
         <li><a href="/reports">Reports</a></li>
     </ul>
 </div>
@@ -28,7 +30,6 @@
         <a href = "/panel"><input type = "button" value = "My profile"/></a>
         <input type="submit" value = "Logout"/>
       </form>
-            </div>
 
             <a th:if = "${session.user == null}" href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
             <a th:if = "${session.user == null}" href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
@@ -36,7 +37,7 @@
     </header>
     <div id = "container">
         <main style = "height: 800px;">
-            <h2>Welcome to our platform!</h2>
+            <h2>Here you can manage your projects!</h2>
             <p>The domain of our Project Manager II application is project management. It is about planning, organizing, and managing resources to achieve specific goals within defined timelines. This domain includes various aspects such as managing projects, tasks, deadlines, schedules, workers, and managers.
             Here are some key aspects of our domain that this application will cover:
             <ul>

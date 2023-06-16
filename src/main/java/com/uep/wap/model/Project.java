@@ -20,9 +20,20 @@ public class Project{
 
     private String projectName;
 
+    @OneToMany(mappedBy = "reportProject", cascade = CascadeType.ALL)
+    private List<Report> projectReports;
+    private List<User> usersList;
+
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team projectTeam;
+
+    @OneToMany(mappedBy = "projectForTask", cascade = CascadeType.ALL)
+    private List<Task> tasksList;
+
 
 //    @ManyToMany(mappedBy = "projectsForUser")
-//    private List<User> usersForProject;
+
 
     public Project(String projectName){
         this.projectName = projectName;
@@ -30,15 +41,15 @@ public class Project{
 //
 //    @ManyToOne
 //    @JoinColumn(name = "Team.project")
-//    private Team assignedTeam;
+
 //
 //
 //    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
-//    private List<Report> projectReports;
+
 //
 //
 //    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
-//    private List<Task> tasksList;
+
 //
 //    @ManyToOne
 //    @JoinColumn(name = "projects")
