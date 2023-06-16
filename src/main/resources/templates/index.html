@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang = "en" xmlns:th = "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
     <title>Project Management - Home</title>
-    <link rel = "stylesheet" type = "text/css" href = "/style.css"/> <!--w finalnej wersji zmienić ścieżkę na style.css-->
+    <link rel="stylesheet" type="text/css" href="/style.css"/> <!--w finalnej wersji zmienić ścieżkę na style.css-->
 </head>
 <body>
 <div class="top-bar">
@@ -18,46 +18,59 @@
         <li><a href="/reports">Reports</a></li>
     </ul>
 </div>
-    <header>
-        <div class = "head_part">
-            <h1 class = "logo">Project Management Application</h1>
-        </div>
-        <div class = "head_part" style = "text-align: right;">
-            <br/>
-            <div th:if = "${session.user}" id = "user_card" style = "width: 256px !important; font-size: 20px; padding: 8px; margin-left: 666px;">
-      <span th:if = "${session.user}">Logged as <span th:text = "${session.user.first_name}">!</span> <span th:text = "${session.user.last_name}">!</span><br/>
+<header>
+    <div class = "head_part">
+        <h1 class = "logo">Project Management Application</h1>
+    </div>
+    <div class = "head_part" style = "text-align: right;">
+        <br/>
+        <div th:if = "${session.user}" id = "user_card" style = "width: 256px !important; font-size: 20px; padding: 8px; margin-left: 666px;">
+            <span th:if = "${session.user}">Logged as </span><span th:text = "${session.user.first_name}">!</span> <span th:text = "${session.user.last_name}">!</span><br/>
       <form th:if="${session.user != null}" action = "/logout" method = "post">
         <a href = "/panel"><input type = "button" value = "My profile"/></a>
         <input type="submit" value = "Logout"/>
       </form>
-
-            <a th:if = "${session.user == null}" href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
-            <a th:if = "${session.user == null}" href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
         </div>
-    </header>
-    <div id = "container">
-        <main style = "height: 800px;">
-            <h2>Here you can manage your projects!</h2>
-            <p>The domain of our Project Manager II application is project management. It is about planning, organizing, and managing resources to achieve specific goals within defined timelines. This domain includes various aspects such as managing projects, tasks, deadlines, schedules, workers, and managers.
-            Here are some key aspects of our domain that this application will cover:
-            <ul>
-                <li>Project Management Processes: Our application will support project management processes such as project initiation, planning, execution, monitoring and controlling.</li>
-                <li>Task Management: Our application will allow users to create and manage tasks, assign them to team members and set deadlines and priorities.</li>
-                <li>Resource Management: Our application will help managers in assigning workers to tasks.</li>
-                <li>Time Management: Our application will enable users to create and manage project schedules, set project timelines.</li>
-                <li>Collaboration and Communication: Our application will facilitate collaboration and communication in project.</li>
-                <li>Integration: Our application will support integration with calendar.</li>
-                <li>Reporting and Analysis: Our application should allow users to generate reports, track project metrics, and analyze project performance.</li>
-            </ul>
-            </p>
 
-            <p> </p>
-            <p> </p>
-            <!--Exemplary sites: Courses (IT Department), Course 1-->
-        </main>
+        <a th:if = "${session.user == null}" href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
+        <a th:if = "${session.user == null}" href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
     </div>
-    <footer>
-        <h5>Authors: Izabela Noga, Jakub Ginczelewski</h5>
-    </footer>
+</header>
+<div id="container">
+    <main style="height: 800px;">
+        <h2>Here you can manage your projects!</h2>
+        <p>The domain of our Project Manager II application is project management. It is about planning, organizing, and
+            managing resources to achieve specific goals within defined timelines. This domain includes various aspects
+            such as managing projects, tasks, deadlines, schedules, workers, and managers.
+            Here are some key aspects of our domain that this application will cover:
+        <ul>
+            <li>Project Management Processes: Our application will support project management processes such as project
+                initiation, planning, execution, monitoring and controlling.
+            </li>
+            <li>Task Management: Our application will allow users to create and manage tasks, assign them to team
+                members and set deadlines and priorities.
+            </li>
+            <li>Resource Management: Our application will help managers in assigning workers to tasks.</li>
+            <li>Time Management: Our application will enable users to create and manage project schedules, set project
+                timelines.
+            </li>
+            <li>Collaboration and Communication: Our application will facilitate collaboration and communication in
+                project.
+            </li>
+            <li>Integration: Our application will support integration with calendar.</li>
+            <li>Reporting and Analysis: Our application should allow users to generate reports, track project metrics,
+                and analyze project performance.
+            </li>
+        </ul>
+        </p>
+
+        <p></p>
+        <p></p>
+        <!--Exemplary sites: Courses (IT Department), Course 1-->
+    </main>
+</div>
+<footer>
+    <h5>Authors: Izabela Noga, Jakub Ginczelewski</h5>
+</footer>
 </body>
 </html>
