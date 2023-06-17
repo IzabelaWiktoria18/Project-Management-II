@@ -57,7 +57,7 @@
                     </fieldset>
                     <br/><br/><label for = "user_type">Choose your user type</label>
                     <select id = "user_type" th:field = "*{role}">
-                        <option th:each = "role : ${availableRoles}" th:value = "${role.role_name}" th:text = "${role.role_name}">course coordinator</option> <!--th:selected = "${roles == 3}"-->
+                        <option th:each = "role : ${availableRoles}" th:value = "${role.role_name}" th:text = "${role.role_name}">course coordinator</option>
                     </select>
                     <br/><br/><label><input name = "regulations" type = "checkbox" required/> Accept regulations</label>
 

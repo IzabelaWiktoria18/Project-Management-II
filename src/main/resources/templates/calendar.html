@@ -29,7 +29,7 @@
             <span th:if="${session.user}">Logged as </span><span th:text="${session.user.first_name}">!</span> <span
               th:text="${session.user.last_name}">!</span><br/>
       <form th:if="${session.user != null}" action="/logout" method="post">
-        <a href="/user_profile"><input type="button" value="My profile"/></a>
+        <a href="/panel"><input type="button" value="My profile"/></a>
         <input type="submit" value="Logout"/>
       </form>
         </div>

@@ -28,7 +28,7 @@
         <div th:if = "${session.user}" id = "user_card" style = " width: 256px !important; font-size: 20px; padding: 8px; margin-left: 666px;">
             <span th:if = "${session.user}">Hello <span th:text = "${session.user.first_name}"/>!</span><br/>
             <form th:if="${session.user != null}" action = "/logout" method = "post">
-                <a href = "/panel"><input type = "button" value = "User's panel"/></a>
+                <a href = "/panel"><input type = "button" value = "My profile"/></a>
                 <input type="submit" value = "Logout"/>
             </form>
         </div>

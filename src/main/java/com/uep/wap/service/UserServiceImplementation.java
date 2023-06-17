@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -52,5 +53,15 @@ public class UserServiceImplementation implements UserService
     {
         HttpSession session = request.getSession(false);
         return session != null && session.getAttribute("user") != null;
+    }
+
+    public User addProjectToUser(User user, long projectId){
+        List<Project> projects = user.getProjectsForUser();
+        Optional<Project> opt = projectRepository.findById(projectId);
+        if (opt.isPresent()){
+            Project project = opt.get();
+            projects.add(project);
+        }
+        return user;
     }
 }

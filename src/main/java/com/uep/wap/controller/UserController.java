@@ -49,6 +49,29 @@ public class UserController
         }
         return "calendar";
     }
+    @GetMapping(path = "/teams")
+    public String teams(HttpServletRequest request)
+    {
+        if (!isUserLoggedIn(request))
+        {
+            return "not_logged";
+        }
+        return "teams";
+    }
+    @GetMapping(path = "/dashboard")
+    public String dashboards(HttpServletRequest request)
+    {
+        if (!isUserLoggedIn(request))
+        {
+            return "not_logged";
+        }
+        return "dashboards";
+    }
+    @GetMapping(path = "/authors")
+    public String authors(HttpServletRequest request)
+    {
+        return "authors";
+    }
     @GetMapping(path = "/notifications")
     public String notifications(HttpServletRequest request)
     {
