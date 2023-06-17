@@ -1,11 +1,14 @@
 package com.uep.wap.controller;
 
+import com.uep.wap.dto.ProjectDTO;
 import com.uep.wap.dto.UserDTO;
+import com.uep.wap.model.Project;
 import com.uep.wap.model.Role;
 import com.uep.wap.model.User;
 import com.uep.wap.repository.ProjectRepository;
 import com.uep.wap.repository.RoleRepository;
 import com.uep.wap.repository.UserRepository;
+import com.uep.wap.service.ProjectsService;
 import com.uep.wap.service.UserServiceImplementation;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -22,19 +25,19 @@ import java.util.List;
 import java.util.Objects;
 
 @Controller
-@RequestMapping(path = "/crproj")
+@RequestMapping(path = "/create_project")
 public class CrProjController
 {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private UserServiceImplementation userService;
+    private ProjectsService projectService;
 
     @Autowired
-    public CrProjController(UserRepository userRepository, UserServiceImplementation userService, RoleRepository roleRepository, ProjectRepository projectRepository)
+    public CrProjController(UserRepository userRepository, ProjectsService projectService, RoleRepository roleRepository, ProjectRepository projectRepository)
     {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-        this.userService = userService;
+        this.projectService = projectService;
 //        this.roleRepository.save(new Role("Project Manager"));
 //        this.roleRepository.save(new Role("Team Member"));
 //        this.roleRepository.save(new Role("Client"));
@@ -70,46 +73,25 @@ public class CrProjController
     @GetMapping
     private String registerPage(Model model, HttpServletRequest request)
     {
-        if (isUserLoggedIn(request))
-        {
-            return "redirect:/";
-        }
+
 
         List<Role> availableRoles = roleRepository.findAllByRoleNameNot("User");
         availableRoles.removeIf(n -> (Objects.equals(n.getRole_name(), "Administrator")));
 
-        model.addAttribute("users", new UserDTO());
+        model.addAttribute("projects", new ProjectDTO());
         model.addAttribute("availableRoles", availableRoles);
-        return "cr_proj";
+        return "create_project";
     }
 
     @PostMapping
-    private String addAccount(@ModelAttribute("user")UserDTO userDTO, RedirectAttributes redirectAttributes)
+    private String addAccount(@ModelAttribute("project") ProjectDTO projectDTO, RedirectAttributes redirectAttributes)
     {
-        List<User> usersFromDatabaseLOGIN = userRepository.findByLogin(userDTO.getLogin());
-        List<User> usersFromDatabaseEMAIL = userRepository.findByEmail(userDTO.getEmail());
 
-        if (!usersFromDatabaseLOGIN.isEmpty())
-        {
-            redirectAttributes.addAttribute("warning_login", true);
-            return "redirect:/crproj";
-        }
-
-        if(!usersFromDatabaseEMAIL.isEmpty())
-        {
-            redirectAttributes.addAttribute("warning_email", true);
-            return "redirect:/crproj";
-        }
-
-        User user = userService.save(userDTO);
-
-        if (userDTO.getRole().equals("Course_coordinator"))
-        {
-            return "redirect:/register-notification";
-        }
-        else
-        {
-            return "redirect:/sign-in";
-        }
+        Project project = projectService.save(projectDTO);
+        System.out.println(project.getProjectName()
+        );
+        return "redirect:/";
     }
+
+
 }

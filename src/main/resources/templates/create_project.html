@@ -17,46 +17,39 @@
         <li><a href="/calendar">Calendar</a></li>
         <li><a href="/notifications">Notifications</a></li>
         <li><a href="/reports">Reports</a></li>
-
     </ul>
 </div>
-    <header>
+<header>
 
-        <div class = "head_part">
-            <h1 class = "logo">Project Management Application</h1>
-        </div>
-        <div class = "head_part" style = "text-align: right;">
-            <br/>
-            <a href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
-            <a href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
-        </div>
-    </header>
-    <div id = "container">
-        <main style = "height: 800px;">
-            <h2>Create Project</h2>
-
-
-            <form id = "project_creation" th:action = "@{/project}" method = "post" th:object = "${projects}">
-                
-                <div class = "half_form">
-                    <fieldset class = "class_field"><legend>Project Name</legend>
-                        <input class = "form_text_block" th:field = "*{projectName}" type = "text" required/>
-                    </fieldset>
-                    <br/><br/><label for = "user_type">Choose your user type</label>
-                    <select id = "user_type" th:field = "*{assignedTeam}">
-                        <option th:each = "team : ${availableTeams}" th:value = "${team.teamName}" th:text = "${team.teamName}">course coordinator</option>
-                    </select>
-                    <br/><br/><label><input name = "regulations" type = "checkbox" required/> Accept regulations</label>
-
-                    <br/><input id = "REGIS" type = "submit" value = "Register"/>
-                </div>
-                
-            </form>
-
-        </main>
+    <div class = "top_bar">
+        <h1 class = "logo">Project Management</h1>
     </div>
-    <footer>
-        <h5>Authors: Izabela Noga, Jakub Ginczelewski</h5>
-    </footer>
+    <div class = "top_bar" style = "text-align: right;">
+        <br/>
+        <a href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
+        <a href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
+    </div>
+</header>
+<div id = "container">
+    <main style = "height: 800px;">
+        <h2>Creating new Project</h2>
+
+        <form id = "registration" th:action = "@{/create_project}" method = "post" th:object = "${projects}">
+
+            <div class = "half_form">
+                <fieldset class = "class_field"><legend>First Name</legend>
+                    <input class = "form_text_block" th:field = "*{projectName}" type = "text" required/>
+                </fieldset>
+
+                <br/><input id = "CREATE" type = "submit" value = "Create new Project"/>
+            </div>
+
+        </form>
+
+    </main>
+</div>
+<footer>
+    <h5>Authors: Izabela Noga, Jakub Ginczelewski</h5>
+</footer>
 </body>
 </html>

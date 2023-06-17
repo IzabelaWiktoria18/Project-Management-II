@@ -15,6 +15,14 @@ header
     color: white;
 }
 
+.top_bar
+{
+    float: left;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .head_part
 {
     float: left;

@@ -1,10 +1,17 @@
 package com.uep.wap.service;
 
 import com.uep.wap.dto.ProjectDTO;
+import com.uep.wap.dto.UserDTO;
 import com.uep.wap.model.Project;
+import com.uep.wap.model.Role;
+import com.uep.wap.model.User;
 import com.uep.wap.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Optional;
 
 @Service
 
@@ -31,4 +38,12 @@ public class ProjectsService {
         return projectRepository.findAll();
     }
     //get create update
+    public Project save(ProjectDTO projectDTO)
+    {
+        System.out.println(projectDTO.getProjectName());
+        Project project  = new Project(projectDTO.getProjectName());
+
+
+        return projectRepository.save(project);
+    }
 }

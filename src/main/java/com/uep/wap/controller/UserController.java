@@ -1,18 +1,17 @@
 package com.uep.wap.controller;
 
 import com.uep.wap.model.Project;
-import com.uep.wap.model.Role;
 import com.uep.wap.repository.ProjectRepository;
 import com.uep.wap.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -29,7 +28,7 @@ public class UserController
         return session != null && session.getAttribute("user") != null;
     }
 
-    @GetMapping(path = "/panel")
+    @GetMapping(path = "/user_profile")
     public String panel(Model model, HttpServletRequest request)
     {
         if (!isUserLoggedIn(request))
@@ -69,6 +68,7 @@ public class UserController
 
         List<Project> currentProjects = new ArrayList<>();
         projectRepository.findAll().forEach(currentProjects::add);
+        CollectionUtils.filter(currentProjects, o -> ((Project) o).getProjectName() != null);
         model.addAttribute("currentProjects", currentProjects);
         return "projects";
     }
@@ -92,4 +92,6 @@ public class UserController
         }
         return "reports";
     }
+
+
 }
