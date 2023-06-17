@@ -17,6 +17,7 @@
     <li><a href="/notifications">Notifications</a></li>
     <li><a href="/reports">Reports</a></li>
     <li><a href="/authors">Authors</a></li>
+    <li><a href="/panel">My profile</a></li>
   </ul>
 </div>
 <header>
@@ -29,7 +30,6 @@
     <div th:if="${session.user}" id="user_card" style="width: 256px !important; font-size: 20px; padding: 8px; margin-left: 666px;">
       <span th:if="${session.user}">Logged as </span><span th:text="${session.user.first_name}">!</span> <span th:text="${session.user.last_name}">!</span><br/>
       <form th:if="${session.user != null}" action="/logout" method="post">
-        <a href="/panel"><input type="button" value="My profile"/></a>
         <input type="submit" value="Logout"/>
       </form>
     </div>
@@ -44,9 +44,11 @@
         <li th:each="project:${currentProjects}" th:text="${project.getProjectName()}"/>
       </ul>
     </td>
-    <p>(To find projects assigned for <span th:text = "${session.user.getFirst_name()}">!</span> <span th:text = "${session.user.last_name}">!</span> go to My profile tab)</p>
+    <p th:if = "${!session.user.isClient()}">(To find projects assigned for <span th:text = "${session.user.getFirst_name()}">!</span> <span th:text = "${session.user.last_name}">!</span> go to <a href="/panel" style="text-decoration: underline;">My profile</a> tab)</p>
     <p> </p>
-    <a href = "/create_project"><input type = "button" value = "Create New Project"/></a>
+    <div th:if="${session.user.isProjectManager()}" >
+      <a href = "/create_project"><input type = "button" value = "Create New Project"/></a>
+    </div>
   </main>
 </div>
 </body>

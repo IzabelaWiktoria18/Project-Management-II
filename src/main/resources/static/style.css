@@ -48,6 +48,11 @@ a {
     text-decoration: none;
 }
 
+#underlined_a{
+    text-decoration: underline;
+    color: cadetblue;
+}
+
 /* Add some basic styling */
 body {
     margin: 0;
@@ -78,6 +83,9 @@ body {
 
 .menu li a:hover {
     text-decoration: underline;
+}
+.menu li form input{
+    float: left;
 }
 
 p{

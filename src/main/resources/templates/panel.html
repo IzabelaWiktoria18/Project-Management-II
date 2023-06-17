@@ -1,65 +1,75 @@
 <!DOCTYPE html>
-<html lang = "en" xmlns:th = "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset = "UTF-8">
-  <title>Project Management</title>
-  <link rel = "stylesheet" type = "text/css" href = "/style.css"/>
+    <meta charset="UTF-8">
+    <title>Project Management</title>
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
 </head>
 <body>
 <div class="top-bar">
-  <ul class="menu">
-    <li><a href="/">Home</a></li>
-    <li><a href="/dashboard">Dashboard</a></li>
-    <li><a href="/projects">Projects</a></li>
-    <li><a href="/tasks">Tasks</a></li>
-    <li><a href="/teams">Teams</a></li>
-    <li><a href="/calendar">Calendar</a></li>
-    <li><a href="/notifications">Notifications</a></li>
-    <li><a href="/reports">Reports</a></li>
-    <li><a href="/authors">Authors</a></li>
-  </ul>
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/tasks">Tasks</a></li>
+        <li><a href="/teams">Teams</a></li>
+        <li><a href="/calendar">Calendar</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+        <li><a href="/reports">Reports</a></li>
+        <li><a href="/authors">Authors</a></li>
+        <li><a href="/panel">My profile</a></li>
+
+    </ul>
 </div>
 <header>
-  <div class = "head_part">
-    <h1 class = "logo">Project Management</h1>
-  </div>
-  <div class = "head_part" style = "text-align: right;">
-    <br/>
-    <div th:if = "${session.user}" id = "user_card" style = "width: 256px !important; font-size: 20px; padding: 8px; margin-left: 666px;">
-      <span th:if = "${session.user}">Logged as <span th:text = "${session.user.first_name}"/>!</span><br/>
-      <form th:if="${session.user != null}" action = "/logout" method = "post">
-        <a href = "/panel"><input type = "button" value = "My profile"/></a>
-        <input type="submit" value = "Logout"/>
-      </form>
+    <div class="head_part">
+        <h1 class="logo">Project Management</h1>
     </div>
+    <div class="head_part" style="text-align: right;">
+        <br/>
+        <div th:if="${session.user}" id="user_card"
+             style="width: 256px !important; font-size: 20px; padding: 8px; margin-left: 666px;">
+            <span th:if="${session.user}">Logged as <span th:text="${session.user.first_name}"/>!</span><br/>
+            <form th:if="${session.user != null}" action="/logout" method="post">
+                <input type="submit" value="Logout"/>
+            </form>
+        </div>
 
-    <a th:if = "${session.user == null}" href = "/sign-in"><input class = "nav_button" type = "button" value = "Sign in"/></a>
-    <a th:if = "${session.user == null}" href = "/register"><input class = "nav_button" type = "button" value = "Register"/></a>
-  </div>
+        <a th:if="${session.user == null}" href="/sign-in"><input class="nav_button" type="button" value="Sign in"/></a>
+        <a th:if="${session.user == null}" href="/register"><input class="nav_button" type="button"
+                                                                   value="Register"/></a>
+    </div>
 </header>
-<div id = "container">
-  <main style = "height: 800px;">
-    <h2>Projects for user <span th:text = "${session.user.getFirst_name()}">!</span> <span th:text = "${session.user.last_name}">!</span></h2>
-    <td th:switch="${session.user.projectsForUser.size()}">
-      <h3 th:case="'0'">NO PROJECTS YET!</h3>
-      <ul><li th:case="'1'" th:text="${session.user.projectsForUser.get(0).getProjectName()}"></li></ul>
-      <ul th:case="*">
-        <li th:each="project:${session.user.projectsForUser}" th:text="${project.getProjectName()}"/>
-      </ul>
-    </td>
-    <h2>Add new project for user <span th:text = "${session.user.getFirst_name()}">!</span> <span th:text = "${session.user.last_name}">!</span></h2>
-    <form id = "project_creation" th:action = "@{/panel}" method = "post" th:object = "${userToAdd}">
+<div id="container">
+    <main style="height: 800px;">
+        <h2>Projects for user <span th:text="${session.user.getFirst_name()}">!</span> <span
+                th:text="${session.user.last_name}">!</span></h2>
+        <td th:switch="${session.user.projectsForUser.size()}">
+            <h3 th:case="'0'">NO PROJECTS YET!</h3>
+            <ul>
+                <li th:case="'1'" th:text="${session.user.projectsForUser.get(0).getProjectName()}"></li>
+            </ul>
+            <ul th:case="*">
+                <li th:each="project:${session.user.projectsForUser}" th:text="${project.getProjectName()}"/>
+            </ul>
+        </td>
+        <div th:if="${!session.user.isClient()}">
+            <h2>Add new project for user <span th:text="${session.user.getFirst_name()}">!</span> <span
+                    th:text="${session.user.last_name}">!</span></h2>
+            <form id="project_creation" th:action="@{/panel}" method="post" th:object="${userToAdd}">
 
-      <div class = "half_form">
-        <select id = "user_type" th:field = "*{project}">
-          <option th:each = "project : ${currentProjectsToAdd}" th:value = "${project.getProjectId()}" th:text = "${project.getProjectName()}">course coordinator</option>
-        </select>
-
-        <br/><input id = "CREATE" type = "submit" value = "Add this project"/>
-      </div>
-
-    </form>
-  </main>
+                <div class="half_form">
+                    <select id="user_type" th:field="*{project}">
+                        <option th:each="project : ${currentProjectsToAdd}" th:value="${project.getProjectId()}"
+                                th:text="${project.getProjectName()}">course coordinator
+                        </option>
+                    </select>
+                  <p th:if = "${session.user.isProjectManager()}">(If there is not the project you are looking for  <a href="/create_project" style="text-decoration: underline;">create one</a>)</p>
+                    <br/><input th:if = "${currentProjectsToAdd.size()>0}" id="CREATE" type="submit" value="Add this project"/>
+                </div>
+          </form>
+        </div>
+    </main>
 </div>
 </body>
 </html>

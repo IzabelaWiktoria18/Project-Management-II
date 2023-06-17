@@ -66,7 +66,7 @@ public class UserServiceImplementation implements UserService
 
 //        User userToAdd = new User(user.getLogin(), user.getPassword(), user.getEmail(), user.getFirst_name(),
 //                user.getLast_name(), user.getRoles(), projects);
-//        userRepository.delete(user);
+        userRepository.save(user);
         return user;
     }
 }

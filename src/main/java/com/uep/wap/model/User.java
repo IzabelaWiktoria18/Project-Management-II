@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.cglib.core.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -57,5 +59,17 @@ public class User
         this.last_name = last_name;
         this.roles = roles;
         this.projectsForUser = projects;
+    }
+
+    public boolean isProjectManager(){
+        String toCheck = "Project Manager";
+        List<String> rolesNames = roles.stream().map(Role::getRole_name).toList();
+        return rolesNames.contains(toCheck);
+    }
+
+    public boolean isClient(){
+        String toCheck = "Client";
+        List<String> rolesNames = roles.stream().map(Role::getRole_name).toList();
+        return  rolesNames.contains(toCheck);
     }
 }

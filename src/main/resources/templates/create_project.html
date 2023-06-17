@@ -17,17 +17,15 @@
         <li><a href="/calendar">Calendar</a></li>
         <li><a href="/notifications">Notifications</a></li>
         <li><a href="/reports">Reports</a></li>
+        <li><a href="/panel">My profile</a></li>
     </ul>
 </div>
 <header>
-
-    <div class = "top_bar">
+    <div class = "top-bar">
         <h1 class = "logo">Project Management</h1>
     </div>
-    <div class = "top_bar" style = "text-align: right;">
-        <br/>
-        <a href = "/sign-in"><input class = "nav_button" type = "button" value = "Log in"/></a>
-        <a href = "/register"><input class = "nav_button" type = "button" value = "Sign up"/></a>
+    <div class = "head_part" style = "text-align: right;">
+
     </div>
 </header>
 <div id = "container">
@@ -37,7 +35,7 @@
         <form id = "project_creation" th:action = "@{/create_project}" method = "post" th:object = "${projects}">
 
             <div class = "half_form">
-                <fieldset class = "class_field"><legend>First Name</legend>
+                <fieldset class = "class_field"><legend>Project Name</legend>
                     <input class = "form_text_block" th:field = "*{projectName}" type = "text" required/>
                 </fieldset>
 

@@ -35,6 +35,12 @@ public class Project{
 //    @ManyToMany(mappedBy = "projectsForUser")
 
 
+    @Override
+    public boolean equals(Object obj) {
+        Project project = (Project) obj;
+        return this.ProjectId == project.ProjectId;
+    }
+
     public Project(String projectName){
         this.projectName = projectName;
     }
