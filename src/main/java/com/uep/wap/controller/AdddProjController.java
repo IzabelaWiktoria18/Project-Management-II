@@ -76,11 +76,12 @@ public class AdddProjController {
     @GetMapping
     private String registerPage(Model model, HttpServletRequest request)
     {
-
-
+        HttpSession session = request.getSession(false);
+        User user = (User)session.getAttribute("user");
         List<Project> currentProjects = new ArrayList<>();
         projectRepository.findAll().forEach(currentProjects::add);
         CollectionUtils.filter(currentProjects, o -> ((Project) o).getProjectName() != null);
+        CollectionUtils.filter(currentProjects, o -> !user.getProjectsForUser().contains((Project) o) );
         model.addAttribute("currentProjectsToAdd", currentProjects);
         model.addAttribute("userToAdd", new UserDTO());
         return "panel";

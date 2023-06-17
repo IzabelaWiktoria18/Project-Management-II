@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en" xmlns:th = "http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-        <html lang = "en" xmlns:th = "http://www.thymeleaf.org">
-        <head>
-        <meta charset = "UTF-8">
-        <title>Project Management</title>
+    <meta charset = "UTF-8">
+    <title>Project Management </title>
     <link rel = "stylesheet" type = "text/css" href = "/style.css"/>
+    <link rel = "stylesheet" type = "text/css" href = "/register.css"/>
 </head>
 <body>
 <div class="top-bar">
@@ -25,12 +22,12 @@
 </div>
 <header>
     <div class = "head_part">
-        <h1 class = "logo">Project Management Application</h1>
+        <h1 class = "logo">Project Management </h1>
     </div>
     <div class = "head_part" style = "text-align: right;">
         <br/>
         <div th:if = "${session.user}" id = "user_card" style = "width: 256px !important; font-size: 20px; padding: 8px; margin-left: 666px;">
-      <span th:if = "${session.user}">Logged as <span th:text = "${session.user.first_name}">!</span> <span th:text = "${session.user.last_name}">!</span><br/>
+            <span th:if = "${session.user}">Logged as </span><span th:text = "${session.user.first_name}">!</span> <span th:text = "${session.user.last_name}">!</span><br/>
       <form th:if="${session.user != null}" action = "/logout" method = "post">
         <a href = "/panel"><input type = "button" value = "My profile"/></a>
         <input type="submit" value = "Logout"/>

@@ -58,10 +58,15 @@ public class UserServiceImplementation implements UserService
     public User addProjectToUser(User user, long projectId){
         List<Project> projects = user.getProjectsForUser();
         Optional<Project> opt = projectRepository.findById(projectId);
-        if (opt.isPresent()){
+        if (opt.isPresent()) {
             Project project = opt.get();
             projects.add(project);
+//            project.getUsersList().add(user); // Add the user to the project's usersList collection
         }
+
+//        User userToAdd = new User(user.getLogin(), user.getPassword(), user.getEmail(), user.getFirst_name(),
+//                user.getLast_name(), user.getRoles(), projects);
+//        userRepository.delete(user);
         return user;
     }
 }
